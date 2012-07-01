@@ -22,35 +22,42 @@ int main(void)
 
     squeeze(a, b);
 
+    printf("%s\n", a);
+
     return 0;
 }
 
 void squeeze(char s1[], char s2[])
 {
-    int i, j, k;
+    int i, j;
     int matched;
     char toPrint[1000];
-    k = 0;
-
+    int z = 0;
+    
+    // for every element in s1
     for (i = 0; s1[i] != '\0';i++)
     {
         matched = false;
-
+        
+        // for every element in s2
         for (j = 0; s2[j] != '\0'; j++)
-        {
+        {   // if the element in s1 at position i matches s2
             if (s1[i] == s2[j])
             {
                 matched = true;
+                break;
             }
-
         }
 
+        // if there were no matches for position i against s2
         if (!matched)
         {
-            toPrint[k++] = s1[i];
+            //The element in s1 at z is now set to wherever i is in the sentence
+            //and then increment z
+            s1[z++] = s1[i];
         }
     }
-    toPrint[k] = '\0';
 
-    printf("%s\n", toPrint);
+    s1[z] = '\0';
 }
+
