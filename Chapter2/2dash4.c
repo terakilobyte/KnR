@@ -30,27 +30,22 @@ int main(void)
 void squeeze(char s1[], char s2[])
 {
     int i, j;
-    int matched;
-    char toPrint[1000];
     int z = 0;
     
     // for every element in s1
     for (i = 0; s1[i] != '\0';i++)
     {
-        matched = false;
-        
         // for every element in s2
         for (j = 0; s2[j] != '\0'; j++)
         {   // if the element in s1 at position i matches s2
             if (s1[i] == s2[j])
             {
-                matched = true;
                 break;
             }
         }
 
         // if there were no matches for position i against s2
-        if (!matched)
+        if (s2[j] == '\0')
         {
             //The element in s1 at z is now set to wherever i is in the sentence
             //and then increment z
